@@ -11,7 +11,7 @@ int main() {
         printf("Devinez le nombre : \n");
         scanf("%d", &nbr_test);
         if (nbr_test == nbr_rand) {
-            printf("Bravo vous avez réussi, le nombre était : %d", nbr_test);
+            printf("Bravo vous avez réussi, le nombre était %d, vous avez trouvé en %d tentatives \n", nbr_test, tentative);
         }
         if (nbr_test > nbr_rand) {
             printf("Inférieur \n");
