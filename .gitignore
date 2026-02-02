@@ -1,0 +1,10 @@
+# Fichiers exécutables
+*.exe
+
+# Fichiers objets
+*.o
+*.obj
+
+# Fichiers temporaires
+*.tmp
+*.temp
