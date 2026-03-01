@@ -49,7 +49,7 @@ void append(struct Liste *l, int val) {
     
     struct Cellule *nouvelleCellule = malloc(sizeof(struct Cellule));
     nouvelleCellule->val = val;
-    nouvelleCellule->next = NULL;  // C'est la dernière !
+    nouvelleCellule->next = NULL;
     
     last->next = nouvelleCellule;
 }
