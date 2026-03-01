@@ -38,7 +38,8 @@ int head(struct Liste *l) {
 
 void append(struct Liste *l, int val) {
     if (l->head == NULL) {
-        return -1;
+        cons(l, val);
+        return;
     }
     
     struct Cellule *last = l->head;
@@ -52,3 +53,53 @@ void append(struct Liste *l, int val) {
     
     last->next = nouvelleCellule;
 }
+
+int search(struct Liste l, int val_search) {
+    int val_return = -1;
+    for (struct Cellule *c = l.head; c != NULL; c = c->next) {
+        if (c->val == val_search) {
+            return c->val;
+        }
+    }
+    return -1;
+}
+
+void removeL(struct Liste *l, int val_remove) {
+    struct Cellule *adresse_prev = NULL;
+    for (struct Cellule *c = l->head; c != NULL; c = c->next) {
+        if (c->val == val_remove) {
+            if (c == l->head) {
+                l->head = l->head->next;
+            } else {
+                adresse_prev->next = c->next;
+            }
+            free(c);
+            return;
+        }
+        adresse_prev = c;
+    }
+}
+
+int main() {
+    // Créer une liste vide
+    struct Liste maListe = {NULL};
+    
+    printf("Liste vide - isEmpty: %d, length: %d\n", isEmpty(maListe), length(maListe));
+    
+    // Ajouter des éléments
+    cons(&maListe, 10);
+    cons(&maListe, 20);
+    append(&maListe, 5);
+    
+    printf("Après ajouts - length: %d, head: %d\n", length(maListe), head(&maListe));
+    
+    // Test search
+    printf("search(20): %d, search(99): %d\n", search(maListe, 20), search(maListe, 99));
+    
+    // Test remove
+    removeL(&maListe, 20);
+    printf("Après remove(20) - length: %d, head: %d\n", length(maListe), head(&maListe));
+    
+    return 0;
+}
+
