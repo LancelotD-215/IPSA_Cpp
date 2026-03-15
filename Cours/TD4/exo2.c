@@ -58,9 +58,9 @@ int main() {
         enfiler(&f, mesure);
         
         nbElements = compter(f);
-        float moyenne = calculerMoyenne(f);
+        float moy = moyenne(f);
         
-        printf("Mesure %d ajoutee - File: %d elements - Moyenne: %.2f\n\n", mesure, nbElements, moyenne);
+        printf("Moyenne: %.2f\n\n", mesure, nbElements, moy);
     }
     
     clearFile(&f);
